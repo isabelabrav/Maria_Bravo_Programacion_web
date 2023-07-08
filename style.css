@@ -1,0 +1,40 @@
+nav{
+    background-color: #03363D;
+    font-size: large;
+    font-family: woodland;
+    font-style: serif;
+    font-weight: strong;
+}  
+
+nav a {
+    color:white;
+}
+
+section{
+    color:#3b5142;
+    background-color:  #F4F2F4;
+    font-size: large;
+    font-family: woodland;
+    font-style: strong;
+}
+ol{
+    color:#3b5142;
+    background-color:  #F4F2F4;
+    font-size: large;
+    font-family: woodland;
+    font-style: oblique;
+}
+ul{
+    color:whitesmoke;
+    background-color: #3c8eac;
+    font-size: large;
+    font-family: woodland;
+    font-style: oblique;
+}
+footer{
+    color:rgb(10, 10, 10);
+    background-color: #c3d632;
+    font-size: large;
+    font-family: cursive;
+    font-style: oblique;
+}

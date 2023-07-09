@@ -22,19 +22,27 @@
     </nav>
 
  <!-- Contenido primario --> 
-<!-- ol con color de fondo personalizado en CSS -->
-    <ol>
-        <h3> Somos un centro cálido y acogedor con altos estándares de belleza y salud. Somos los mejores en lo que hacemos.  </h3>
-    </ol>
-        
 
- 
-<!-- ul con color de fondo personalizado en CSS -->
-<ul>
-    <h4>Certificación:</h4>
-    <p>Con Certificación en, Pivot Point, Redken, PlusHair, Inoar,Eva Berndt, Fontboté y Organic nail.</p>
-  </ul>
-
+<div class="container">
+            <?php
+            echo '<h1 style="text-align:center;">Bienvenido(a) a la Página de Inicio</h1>';
+            ?>
+            <form action="Index.php" method="POST">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="edad" class="form-label">Edad:</label>
+                    <input type="number" class="form-control" id="edad" name="edad" required>
+                </div>
+                <div class="mb-3">
+                    <label for="interes" class="form-label">Estoy interesado/a en la información de la página:</label>
+                    <input type="checkbox" id="interes" name="interes">
+                </div>
+                <button type="submit" class="btn btn-success">Enviar</button>
+            </form>
+        </div>
  
 <!-- Footer personalizado -->
 <footer class="container mt-4" >

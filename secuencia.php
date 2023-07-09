@@ -31,7 +31,7 @@
             Menú
         </button>
         <ul class="dropdown-menu">
-         <li><a class="dropdown-item" href="index.php">Inicio</a></li> 
+         <li><a class="dropdown-item" href="Inicio.php">Inicio</a></li> 
             <li><a class="dropdown-item" href="cuento.php">Cuento</a></li>
             <li><a class="dropdown-item" href="secuencia.php">Secuencia</a></li>
         </ul>

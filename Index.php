@@ -11,6 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     </link>
     <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
 </head>
 
 
@@ -23,76 +26,110 @@
         </div>
     </nav>
 
-
-    <!-- Contenido principal -->
-    <section class="section1" style="text-align: center;">
-        <h1 style="margin: 30px 0;">Makeup Artist and Hairstylist</h1>
-        <h2> Bienvenida a visitar nuestro centro donde cada mujer es tratada con alta atención. Te daremos todo lo que tu belleza pueda necesitar.  </h2>
-    </section>
-<!-- contenedor de Imágenes, intente de muchas formas, pero me fue imposible centrar las imagenes. -->
-    <div class="container mt-4">
-        <?php
-            $directorio = "./fotos/*.jpeg";
-            $imagenes = glob($directorio);
-            $totalim = count($imagenes);
-            foreach ($imagenes as $indice => $imagen) {
-                $clase = ($indice === 1 || $indice === $totalim -2) ? 'rounded-circle' : 'rounded';
-                 echo  '<img class="img-fluid ' .$clase. '" src="' . $imagen . '" alt="Imagen" style = "margin-right: 20px; widht: 220px; height: 220px;" />';
-            }
-        ?>
-    </div>
- <!-- Contenido secundario --> 
-<!-- ol con color de fondo personalizado en CSS -->
-    <ol class="container mt-4" >
-        <h3> Somos un centro cálido y acogedor con altos estándares de belleza y salud. Somos los mejores en lo que hacemos.  </h3>
-    </ol>
-        
-<!-- Dropdown de Bootstrap -->
+    <!-- Dropdown de Bootstrap -->
     
 <div class="dropdown">
         <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Menú
         </button>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="index.php">Inicio</a></li> 
+            <li><a class="dropdown-item" href="Inicio.php">Inicio</a></li> 
             <li><a class="dropdown-item" href="cuento.php">Cuento</a></li>
             <li><a class="dropdown-item" href="secuencia.php">Secuencia</a></li>
         </ul>
     </div>
  
-<!-- ul con color de fondo personalizado en CSS -->
-<ul class="container mt-4" >
-    <h4>Certificación:</h4>
-    <p>Con Certificación en, Pivot Point, Redken, PlusHair, Inoar,Eva Berndt, Fontboté y Organic nail.</p>
-  </ul>
 
+    <!-- Contenido principal -->
+    <section class="section1" style="text-align: center;">
+        <h1 style="margin: 30px 0;">Makeup Artist and Hairstylist</h1>
+        <h2> Bienvenida a visitar nuestro centro donde cada mujer es tratada con alta atención. Te daremos todo lo que tu belleza pueda necesitar.  </h2>
+    </section>
 
+ <!-- Contenido secundario --> 
 
-    <!-- Carrucel de foto automatico, tenia otro carrusel automatico, sin las flechas de izquierda y derecha, pero no se movian las imagenes, tuve que cambiarlo-->
-<div id="myCarousel" class="carousel slide mt-4" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="slides\imagen15.jpeg" class="d-block w-100" alt="Slide 1">
-      </div>
-      <div class="carousel-item">
-        <img src="slides\imagen3.jpeg" class="d-block w-100" alt="Slide 2">
-      </div>
-      <div class="carousel-item">
-        <img src="slides\imagen12.jpeg" class="d-block w-100" alt="Slide 3">
-      </div>
-      <div class="carousel-item">
-        <img src="slides\imagen6.jpeg" class="d-block w-100" alt="Slide 4">
-      </div>
+    <!-- Carrucel de foto automatico-->
+    <div class="container">
+        <?php
+        // Obtener los datos enviados por el formulario
+        $nombre = $_POST['nombre'];
+        $edad = $_POST['edad'];
+        $interes = isset($_POST['interes']);
+
+        // Mostrar información según la edad del usuario
+        if ($edad < 18) {
+            echo '<h1>Bienvenido/a, ' . $nombre . ' (menor de edad)</h1>';
+            echo '<p>Aquí va la información para menores de edad.</p>';
+        } else {
+            echo '<h1>Bienvenido/a, ' . $nombre . ' (mayor de edad)</h1>';
+            echo '<p>Aquí va la información para mayores de edad.</p>';
+            // ul con color de fondo personalizado en CSS//
+            echo '
+                <ul class="container mt-4" >
+                    <h4>Certificación:</h4>
+                    <p>Con Certificación en, Pivot Point, Redken, PlusHair, Inoar,Eva Berndt, Fontboté y Organic nail.</p>
+                </ul>
+            ';
+            // contenedor de Imágenes, intente de muchas formas, pero me fue imposible centrar las imagenes. --
+           
+            echo '<div class="container mt-4">';
+                $directorio = "./fotos/*.jpeg";
+                $imagenes = glob($directorio);
+                $totalim = count($imagenes);
+                foreach ($imagenes as $indice => $imagen) {
+                    $clase = ($indice === 1 || $indice === $totalim -2) ? 'rounded-circle' : 'rounded';
+                    echo  '<img class="img-fluid ' .$clase. '" src="' . $imagen . '" alt="Imagen" style = "margin-right: 20px; widht: 220px; height: 220px;" />';
+                }
+            echo '</div>';
+            //ol con color de fondo personalizado en CSS//
+            echo '
+            <ol class="container mt-4" >
+                <h3> Somos un centro cálido y acogedor con altos estándares de belleza y salud. Somos los mejores en lo que hacemos.  </h3>
+            </ol>
+                ';
+        }
+
+        // Mostrar el banner de información si el usuario marcó el check
+        if ($interes) {
+            echo '
+                <div class="container mt-4">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="slides/imagen1.jpeg" class="d-block w-100" alt="Slide 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="slides/imagen2.jpeg" class="d-block w-100" alt="Slide 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="slides/imagen3.jpeg" class="d-block w-100" alt="Slide 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="slides/imagen4.jpeg" class="d-block w-100" alt="Slide 4 ">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="slides/imagen5.jpeg" class="d-block w-100" alt="Slide 5">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="slides/imagen6.jpeg" class="d-block w-100" alt="Slide 6">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="slides/imagen7.jpeg" class="d-block w-100" alt="Slide 7">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="slides/imagen8.jpeg" class="d-block w-100" alt="Slide 8">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="slides/imagen9.jpeg" class="d-block w-100" alt="Slide 9">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+        ?>
     </div>
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+
 
 <!-- Footer personalizado -->
 <footer class="container mt-4" >
